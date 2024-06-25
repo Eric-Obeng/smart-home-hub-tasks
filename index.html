@@ -4,21 +4,41 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Tasks</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <header>
-      <h1>Good Morning, Psalmist</h1>
-    </header>
+    <!-- <header class="header greet">
+      <h1 class="greet__text">Good Morning, Psalmist</h1>
+    </header> -->
     <main>
       <div id="task__container" class="col-1">
-        <button id="add__task">+ ADD Tasks</button>
-        <form action="" id="task__form"></form>
-        <div id="task__list"></div>
+        <h1 class="greet__text">Good Morning, Psalmist</h1>
+        <button id="add__task" class="add__task">+ ADD Tasks</button>
+        <form action="" id="task__form">
+          <input type="text" id="title" placeholder="Title" required />
+          <textarea
+            id="description"
+            placeholder="Description"
+            rows="10"
+            cols="30"
+          ></textarea>
+          <input type="datetime-local" id="due-date" required />
+          <div class="button__container">
+            <button type="button" id="add-button" class="addBtn btn">
+              Add Todo
+            </button>
+            <button type="button" id="close-button" class="closeBtn btn">
+              Cancel
+            </button>
+          </div>
+        </form>
+        <div id="task__list-container">
+          <ul id="task-list"></ul>
+        </div>
       </div>
       <div class="col-2">
-        <div class="calendar"></div>
-        <div class="notification"></div>
+        <div class="calendar">calendar</div>
+        <div class="notification">notification</div>
       </div>
     </main>
   </body>
