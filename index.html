@@ -7,39 +7,55 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
-    <!-- <header class="header greet">
-      <h1 class="greet__text">Good Morning, Psalmist</h1>
-    </header> -->
+    <header class="header">
+      <nav class="nav">
+        <ul class="nav__list">
+          <li class="nav__item">
+            <a id="task" class="active" href="#">Add Tasks</a>
+          </li>
+          <li class="nav__item"><a id="calendar" href="#">Calendar</a></li>
+          <li class="nav__item">
+            <a id="notification" href="#">Notifications</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
     <main>
+      <h1 class="greet__text">Good Morning, Psalmist</h1>
       <div id="task__container" class="col-1">
-        <h1 class="greet__text">Good Morning, Psalmist</h1>
-        <button id="add__task" class="add__task">+ ADD Tasks</button>
-        <form action="" id="task__form">
-          <input type="text" id="title" placeholder="Title" required />
-          <textarea
-            id="description"
-            placeholder="Description"
-            rows="10"
-            cols="30"
-          ></textarea>
-          <input type="datetime-local" id="due-date" required />
-          <div class="button__container">
-            <button type="button" id="add-button" class="addBtn btn">
-              Add Todo
-            </button>
-            <button type="button" id="close-button" class="closeBtn btn">
-              Cancel
-            </button>
-          </div>
-        </form>
+        <!-- <button id="add__task" class="add__task">+ ADD Tasks</button> -->
+        <div>
+          <p>Please fill the form below to add new task.</p>
+          <form action="" id="task__form">
+            <input type="text" id="title" placeholder="Title" required />
+            <textarea
+              id="description"
+              placeholder="Description"
+              rows="10"
+              cols="30"
+            ></textarea>
+            <input type="datetime-local" id="due-date" required />
+            <div class="button__container">
+              <button type="button" id="add-button" class="addBtn btn">
+                Add Todo
+              </button>
+              <button type="button" id="clear-button" class="clearBtn btn">
+                Clear
+              </button>
+            </div>
+          </form>
+        </div>
         <div id="task__list-container">
           <ul id="task-list"></ul>
         </div>
       </div>
-      <div class="col-2">
+      <div id="calender__container" class="col-2" style="display: none">
         <div class="calendar">calendar</div>
+      </div>
+      <div id="notification__container" class="col-3" style="display: none">
         <div class="notification">notification</div>
       </div>
     </main>
+    <script src="./script.js"></script>
   </body>
 </html>
