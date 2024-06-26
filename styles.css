@@ -1,5 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 * {
   margin: unset;
   padding: unset;
+}
+
+/* bg 1. #FFFFFF 2. #F0F0F0 ht 3. #333333 4.#007BFF btn 5. #28A745 warn. #FFC107 error #DC3545 pt #333333 st #6C757D  */
+
+html {
   box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  width: 100%;
+  gap: 50px;
+  padding: 2.5%;
+  font-family: "Rubik", Arial, Helvetica, sans-serif;
+  background-color: #ffffff;
+  overflow: hidden;
+}
+
+.header {
+  background-color: #e4e4e4;
+  width: 10%;
+  height: 41rem;
+  padding: 20px;
+  border-radius: 25px;
+}
+
+.nav {
+  width: inherit;
+  height: inherit;
+}
+
+.nav .nav__list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+  height: 100%;
+}
+
+.nav .nav__list li {
+  list-style: none;
+  font-size: 1.3rem;
+  font-weight: 500;
+  width: 150px;
+}
+
+.nav .nav__list li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  background-color: #696969;
+  border-radius: 8px;
+  padding: 0 0 0 10px;
+  width: 140px;
+  height: 40px;
+  /* text-align: center; */
+}
+
+.active {
+  background-color: #28a745;
+}
+
+.nav .nav__list li a:hover,
+.nav .nav__list li a:active,
+.nav .nav__list li a.active {
+  background-color: #28a745;
+  transition: background-color 0.5s ease-in-out;
+}
+
+main {
+  position: relative;
+  height: inherit;
+  width: 80%;
+  box-sizing: border-box;
+  padding: 20px;
+  border-radius: 25px;
+  background-color: #e4e4e4;
+}
+
+main > h1 {
+  margin-bottom: 20px;
+}
+
+.col-1 {
+  /* width: 45%; */
+  display: flex;
+  gap: 50px;
+}
+
+.col-1 .add__task {
+  width: 130px;
+  padding: 0.4rem;
+  font-size: 1rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+.col-1 form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  border: 5px solid grey;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+}
+
+.col-1 form input,
+.col-1 form textarea {
+  margin-bottom: 10px;
+  padding: 10px;
+  font-size: 16px;
+  width: 300px;
+  border: 3px solid grey;
+  border-radius: 10px;
+}
+
+form textarea {
+  resize: none;
+}
+
+form .button__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 300px;
+  padding: 10px;
+}
+
+.button__container .btn {
+  width: 80px;
+  padding: 0.4rem;
+}
+
+.col-2 {
+  /* width: 45%; */
+  background-color: aquamarine;
+  display: flex;
+  flex-direction: column;
+}
+
+.hidden {
+  display: none;
+}
+
+#task-list {
+  list-style: none;
+  padding: 0;
+}
+
+.task-item {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  width: 760px;
+}
+.task-item .task-item-header {
+  display: flex;
+}
+
+.task-item.completed {
+  background-color: #d4edda;
+}
+
+.task-title.completed-title {
+  text-decoration: line-through;
 }
