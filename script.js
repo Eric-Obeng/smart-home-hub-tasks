@@ -1,4 +1,5 @@
 "use strict";
+
 // Tabs
 const taskTab = document.getElementById("task");
 const calendarTab = document.getElementById("calendar");
@@ -22,7 +23,14 @@ const dueDateField = document.getElementById("due-date");
 
 const taskListElement = document.getElementById("task-list");
 
+// modal
+const deleteModal = document.getElementById("delete-modal");
+const modalContent = deleteModal.querySelector(".modal-content");
+const confirmDeleteBtn = document.getElementById("confirm-delete");
+const cancelDeleteBtn = document.getElementById("cancel-delete");
+
 let taskList = [];
+let deleteId = null;
 let currentFilter = "all";
 let sortOrder = "asc";
 let editMode = false;
@@ -76,8 +84,12 @@ function createTaskElement(task) {
 
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
+  checkbox.className = 'checkbox'
   checkbox.checked = task.completed;
   checkbox.addEventListener("change", toggleTaskCompletion);
+
+  const content = document.createElement("div");
+  content.className = "task-item-content";
 
   const title = document.createElement("h3");
   title.textContent = task.title;
@@ -92,14 +104,44 @@ function createTaskElement(task) {
   const dueDate = document.createElement("p");
   dueDate.textContent = `Due: ${task.dueDate}`;
 
+  const deleteButton = document.createElement("button");
+  deleteButton.className = "delete-btn";
+  deleteButton.innerHTML = "🗑️";
+  deleteButton.addEventListener("click", function () {
+    deleteId = task.id;
+    showModal();
+  });
+
+  content.appendChild(title);
+  content.appendChild(description);
+  content.appendChild(dueDate);
+
   header.appendChild(checkbox);
-  header.appendChild(title);
-  header.appendChild(description);
-  header.appendChild(dueDate);
+  header.appendChild(content);
+  header.appendChild(deleteButton);
 
   li.appendChild(header);
 
   return li;
+}
+
+function showModal() {
+  deleteModal.classList.add("show");
+  modalContent.classList.add("show");
+  document.querySelector("main").classList.add("blur");
+}
+
+function hideModal() {
+  deleteModal.classList.remove("show");
+  modalContent.classList.remove("show");
+  document.querySelector("main").classList.remove("blur");
+}
+
+function deleteTask() {
+  taskList = taskList.filter((task) => task.id !== deleteId);
+  saveTasks();
+  document.querySelector(`li[data-id="${deleteId}"]`).remove();
+  hideModal();
 }
 
 function toggleTaskCompletion(event) {
@@ -140,8 +182,6 @@ function clearForm() {
 }
 
 // Event listeners
-clearTaskBtn.addEventListener("click", clearForm);
-
 taskTab.addEventListener("click", function () {
   taskTab.classList.add("active");
   calendarTab.classList.remove("active");
@@ -171,3 +211,14 @@ notificationTab.addEventListener("click", function () {
   calendarContainer.style.display = "none";
   taskContainer.style.display = "none";
 });
+
+confirmDeleteBtn.addEventListener("click", deleteTask);
+cancelDeleteBtn.addEventListener("click", hideModal);
+
+window.addEventListener("click", (event) => {
+  if (event.target === deleteModal) {
+    hideModal();
+  }
+});
+
+clearTaskBtn.addEventListener("click", clearForm);
