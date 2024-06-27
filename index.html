@@ -24,7 +24,7 @@
       <h1 class="greet__text">Good Morning, Psalmist</h1>
       <div id="task__container" class="col-1">
         <!-- <button id="add__task" class="add__task">+ ADD Tasks</button> -->
-        <div>
+        <div class="col-1__left">
           <p>Please fill the form below to add new task.</p>
           <form action="" id="task__form">
             <input type="text" id="title" placeholder="Title" required />
@@ -50,12 +50,33 @@
         </div>
       </div>
       <div id="calender__container" class="col-2" style="display: none">
-        <div class="calendar">calendar</div>
+        <!-- https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
+        <div class="calendar">
+          <p class="title">My Calendar</p>
+          <div class="calendar__tabs">
+            <button>My Day</button>
+            <button>This Week</button>
+            <button>This Month</button>
+            <button>All Tasks</button>
+          </div>
+        </div>
       </div>
       <div id="notification__container" class="col-3" style="display: none">
         <div class="notification">notification</div>
       </div>
     </main>
+
+    <!-- Deleting task modal -->
+    <div id="delete-modal" class="modal">
+      <div class="modal-content">
+        <p>Are you sure you want to delete this task?</p>
+        <div class="modal-btn">
+          <button id="confirm-delete" class="btn">Yes</button
+          ><button id="cancel-delete" class="btn">Cancel</button>
+        </div>
+      </div>
+    </div>
+
     <script src="./script.js"></script>
   </body>
 </html>
