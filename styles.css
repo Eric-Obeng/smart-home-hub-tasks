@@ -25,6 +25,18 @@ body {
   background-color: #ffffff;
 }
 
+.notification-popup {
+  position: absolute;
+  top: 5px;
+  right: 65px;
+  background-color: #28a746ed;
+  color: #fff;
+  padding: 10px;
+  font-size: 1.1rem;
+  box-shadow: 2px 1px 5px rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+}
+
 .header {
   background-color: #e4e4e4;
   width: 15%;
@@ -67,6 +79,10 @@ body {
 
 .active {
   background-color: #28a745;
+  transform: scale(1.1);
+  color: #fff;
+  font-weight: 600;
+  transition: all 0.3s ease;
 }
 
 .nav__item a:hover,
@@ -89,6 +105,8 @@ main {
 main > h1 {
   color: #fff;
   margin-bottom: 20px;
+  transition: all 0.2 ease;
+  animation: moveRight 0.5s ease-in-out 1s;
 }
 
 /* .col-1,
@@ -115,9 +133,10 @@ main > h1 {
 }
 
 #task__list-container {
-  width: 60%;
+  width: 50%;
   /* overflow-y: scroll; */
-  height: 100%;
+  /* height: 100%; */
+  margin-left: auto;
   scrollbar-width: none;
 }
 
@@ -134,8 +153,7 @@ main > h1 {
 .col-1 .col-1__left {
   display: flex;
   flex-direction: column;
-  /* border: 1px solid; */
-  justify-content: space-around;
+  gap: 20px;
 }
 
 .col-1 .col-1__left p {
@@ -178,9 +196,24 @@ form .button__container {
   padding: 10px;
 }
 
+.addBtn {
+  background-color: #28a745;
+}
+
+.addBtn:hover {
+  background-color: #228d3b;
+}
+
+.clearBtn {
+  background-color: #dc3545;
+}
+
 .button__container .btn {
-  width: 80px;
+  width: 100px;
   padding: 0.4rem;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .hidden {
@@ -190,10 +223,15 @@ form .button__container {
 #task-list {
   list-style: none;
   padding: 1rem;
+  flex-direction: column;
   /* border: 2px solid; */
-  height: 600px;
+  height: 630px;
   overflow-y: auto;
   scrollbar-width: none;
+}
+
+#task-list.groupedTask {
+  height: 530px;
 }
 
 .task-item {
@@ -206,6 +244,10 @@ form .button__container {
   box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.6);
 }
 
+.task-item:hover {
+  transform: scale(1.02);
+}
+
 .task-item .task-item-header {
   display: flex;
   align-items: center;
@@ -214,6 +256,7 @@ form .button__container {
 .task-item .task-item-header .checkbox {
   width: 50px;
   margin-right: 20px;
+  height: 25px;
 }
 
 .task-item .task-item-header .task-item-content {
@@ -260,6 +303,7 @@ form .button__container {
   background-color: rgba(0, 0, 0, 0.5);
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  animation: moveRight 0.3s ease;
 }
 
 .modal.show {
@@ -298,10 +342,199 @@ form .button__container {
 /* Calendar display (col-2)*/
 .col-2 {
   display: flex;
-  flex-direction: column;
   width: 100%;
-  height: 90%;
+  height: 95%;
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  /* animation: MoveRight 0.5s ease-in-out 0.2s linear; */
+  /* transition: animation 0.2 ease; */
+}
+
+.animate {
+  animation: MoveRight 0.5s ease-in-out;
+}
+
+.calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.calendar-wrapper .tabs {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.calendar-wrapper .tabs .title {
+  font-size: 28px;
+  font-weight: 400;
+  color: #fff;
+  line-height: 1.5;
+}
+
+.tabs .calendar__tabs {
+  display: flex;
+  align-items: center;
+}
+
+.tabs .calendar__tabs .btn {
+  text-transform: uppercase;
+}
+
+.calendar-wrapper .calendar-div {
+  /* width: 100%; */
+  /* height: 100%; */
+  /* background-color: salmon; */
+  display: flex;
+  gap: 50px;
+}
+
+.calendar-div .current-tasks {
+  /* margin-left: auto; */
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.calender {
+  background-color: rgba(0, 0, 0, 0.7);
+  color: lightgray;
+  width: 400px;
+  height: 450px;
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.4);
+  border-radius: 10px;
+}
+
+.month {
+  width: 100%;
+  height: 90px;
+  background-color: lightseagreen;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 10px 10px 0 0;
+}
+
+.month h1 {
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.month p {
+  font-size: 16px;
+}
+
+.weekdays {
+  width: 100%;
+  height: 50px;
+  display: flex;
+}
+
+.weekdays div {
+  font-size: 15px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.days {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 2px;
+}
+
+.days div {
+  font-size: 14px;
+  margin: 3px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.days div:hover:not(.empty) {
+  border: 2px solid gray;
+  cursor: pointer;
+}
+
+.today {
+  background-color: lightseagreen;
+  border-radius: 50%;
+}
+
+/* notifications */
+.my-notifications li {
+  position: absolute;
+  top: -20px;
+  right: 0px;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 10000;
+  animation: fadeInOut 5s;
+}
+
+.notif-text {
+  padding: 15px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  font-weight: 500;
+  background-color: #cccccc8e;
+  backdrop-filter: blur(5px);
+  border-radius: 25px;
+}
+
+.notif-text:hover {
+  transform: scale(1.02);
+  color: #000;
+  background-color: #fff;
+  transition: all 0.5s ease;
+}
+
+#task__list-container .notif {
+  flex-direction: column;
+  gap: 20px;
+  height: 560px;
+  overflow: auto;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeInOut {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  10%,
+  90% {
+    opacity: 1;
+  }
+}
+
+@keyframes moveRight {
+  0% {
+    opacity: 0;
+    transform: translateX(200px);
+  }
+
+  80% {
+    transform: translateX(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0px);
+  }
 }
