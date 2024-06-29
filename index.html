@@ -14,9 +14,6 @@
             <a id="task" class="active" href="#">Add Tasks</a>
           </li>
           <li class="nav__item"><a id="calendar" href="#">Calendar</a></li>
-          <li class="nav__item">
-            <a id="notification" href="#">Notifications</a>
-          </li>
         </ul>
       </nav>
     </header>
@@ -51,18 +48,87 @@
       </div>
       <div id="calender__container" class="col-2" style="display: none">
         <!-- https://images.pexels.com/photos/1032650/pexels-photo-1032650.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1 -->
-        <div class="calendar">
-          <p class="title">My Calendar</p>
-          <div class="calendar__tabs">
-            <button>My Day</button>
-            <button>This Week</button>
-            <button>This Month</button>
-            <button>All Tasks</button>
+        <div class="calendar-wrapper">
+          <div class="tabs">
+            <p class="title">My Calendar</p>
+            <div class="calendar__tabs">
+              <button class="btn day-tab" id="day-tab">My Day</button>
+              <button class="btn week-tab" id="week-tab">This Week</button>
+              <button class="btn month-tab" id="month-tab">This Month</button>
+              <button class="btn notification-tab" id="notif-tab">
+                Notifications
+              </button>
+            </div>
+          </div>
+          <div class="calendar-div">
+            <div class="calender">
+              <div class="month">
+                <div class="date">
+                  <h1></h1>
+                  <p>Wed Jun 08 2022</p>
+                </div>
+              </div>
+
+              <div class="weekdays">
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
+              </div>
+              <div class="days">
+                <!-- <div class="empty"></div>
+            <div class="empty"></div>
+            <div>1</div>
+            <div>2</div>
+            <div>3</div>
+            <div>4</div>
+            <div>5</div>
+            <div>6</div>
+            <div>7</div>
+            <div class="today">8</div>
+            <div>9</div>
+            <div>10</div>
+            <div>11</div>
+            <div>12</div>
+            <div>13</div>
+            <div>14</div>
+            <div>15</div>
+            <div>16</div>
+            <div>17</div>
+            <div>18</div>
+            <div>19</div>
+            <div>20</div>
+            <div>21</div>
+            <div>22</div>
+            <div>23</div>
+            <div>24</div>
+            <div>25</div>
+            <div>26</div>
+            <div>27</div>
+            <div>28</div>
+            <div>29</div>
+            <div>30</div> -->
+              </div>
+            </div>
+            <div id="task__list-container">
+              <ul class="daily-task groupedTask" id="task-list">
+                <!-- <p>My Day</p> -->
+              </ul>
+              <ul class="weekly-task groupedTask" id="task-list">
+                <!-- <p>This week</p> -->
+              </ul>
+              <ul class="monthly-task groupedTask" id="task-list">
+                <!-- <p>This Month</p> -->
+              </ul>
+              <ul class="notif groupedTask" id="task-list notif">
+                
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-      <div id="notification__container" class="col-3" style="display: none">
-        <div class="notification">notification</div>
       </div>
     </main>
 
