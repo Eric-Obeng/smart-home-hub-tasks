@@ -101,7 +101,7 @@ function createTaskElement(task) {
   content.className = "task-item-content";
 
   const title = document.createElement("h3");
-  title.textContent = task.title;
+  title.textContent = task.title; 
   title.className = "task-title";
   if (task.completed) {
     title.classList.add("completed-title");
