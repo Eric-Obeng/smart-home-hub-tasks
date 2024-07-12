@@ -19,7 +19,7 @@ body {
   display: flex;
   position: relative;
   width: 100%;
-  gap: 50px;
+  gap: 20px;
   padding: 2.5%;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
   background-color: #ffffff;
@@ -38,11 +38,10 @@ body {
 }
 
 .header {
-  background-color: #e4e4e4;
   width: 15%;
   height: 100%;
   padding: 20px;
-  border-radius: 25px;
+  border-right: 2px solid #28a745;
 }
 
 .nav {
@@ -98,12 +97,13 @@ main {
   width: 80%;
   padding: 20px;
   border-radius: 25px;
-  background-color: #e4e4e4;
-  background: url("./images/bg-image-1.jpg") center/cover no-repeat;
+  /* background-color: #e4e4e4; */
+  /* background: url("./images/bg-image-1.jpg") center/cover no-repeat; */
 }
 
 main > h1 {
-  color: #fff;
+  color: #28a745;
+
   margin-bottom: 20px;
   transition: all 0.2 ease;
   animation: moveRight 0.5s ease-in-out 1s;
@@ -179,6 +179,7 @@ main > h1 {
   margin-bottom: 10px;
   padding: 10px;
   font-size: 16px;
+  border-width: thin;
   width: 100%; /* Adjusted to take full width */
   border: 3px solid grey;
   border-radius: 10px;
@@ -280,7 +281,7 @@ form .button__container {
 
 .task-item.completed {
   background-color: #b0b0b0;
-  opacity: 0.7;
+  opacity: 0.2;
 }
 
 .task-title.completed-title {
@@ -320,6 +321,7 @@ form .button__container {
   width: 320px;
   transform: scale(0.7);
   transition: transform 0.5s ease;
+  text-align: center;
 }
 
 .modal-content.show {
@@ -347,6 +349,7 @@ form .button__container {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  color: #000;
   /* animation: MoveRight 0.5s ease-in-out 0.2s linear; */
   /* transition: animation 0.2 ease; */
 }
@@ -477,7 +480,7 @@ form .button__container {
   top: -20px;
   right: 0px;
   background-color: #28a745;
-  color: #fff;
+  color: #000;
   padding: 10px 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
@@ -489,7 +492,7 @@ form .button__container {
   padding: 15px;
   text-align: center;
   font-size: 1.2rem;
-  color: #fff;
+  color: #000;
   font-weight: 500;
   background-color: #cccccc8e;
   backdrop-filter: blur(5px);
@@ -536,5 +539,63 @@ form .button__container {
   100% {
     opacity: 1;
     transform: translateX(0px);
+  }
+}
+
+/* large screens */
+@media (max-width: 1024px) {
+  body {
+    min-width: 768px;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .header {
+    display: flex;
+    width: 100%;
+    height: 8%;
+    justify-content: center;
+    border-right: none;
+    border-bottom: 2px solid #28a745;
+  }
+
+  .nav__list {
+    flex-direction: row;
+  }
+
+  main {
+    width: 100%;
+  }
+
+  .calender {
+    width: 500px;
+  }
+}
+
+/* medium screens */
+@media (max-width: 768px) {
+  body {
+    min-width: 768px;
+  }
+
+  .header {
+  }
+
+  .nav__list {
+  }
+}
+
+/*  small screens */
+@media (max-width: 640px) {
+  body {
+    min-width: 768px;
+  }
+}
+
+/* xtra small screens */
+@media (max-width: 475px) {
+  body {
+    min-width: 475px;
   }
 }
