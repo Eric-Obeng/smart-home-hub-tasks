@@ -13,6 +13,7 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  color: #000;
 }
 
 body {
@@ -22,7 +23,7 @@ body {
   gap: 20px;
   padding: 2.5%;
   font-family: "Poppins", Arial, Helvetica, sans-serif;
-  background-color: #ffffff;
+  background-color: #fffefe;
 }
 
 .notification-popup {
@@ -159,7 +160,7 @@ main > h1 {
 .col-1 .col-1__left p {
   font-size: 1.3rem;
   line-height: 1.5rem;
-  color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
 }
 
 .col-1 .col-1__left form {
